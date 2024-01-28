@@ -1,0 +1,184 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6365,        176]
+NotebookOptionsPosition[      5882,        159]
+NotebookOutlinePosition[      6282,        175]
+CellTagsIndexPosition[      6239,        172]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"sierpinskiTriangle", "[", 
+     RowBox[{"points_", ",", "depth_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "midpoints", "}"}], ",", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"depth", "==", "0"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Polygon", "[", "points", "]"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"midpoints", "=", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "+", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ")"}], "/", "2"}], "&"}], "/@", 
+           RowBox[{"Subsets", "[", 
+            RowBox[{"points", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"sierpinskiTriangle", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"depth", "-", "1"}]}], "]"}], "&"}], "/@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Join", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"points", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "}"}], ",", 
+               RowBox[{"midpoints", "[", 
+                RowBox[{"[", 
+                 RowBox[{"1", ";;", "2"}], "]"}], "]"}]}], "]"}], ",", 
+             RowBox[{"Join", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"points", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "}"}], ",", 
+               RowBox[{"midpoints", "[", 
+                RowBox[{"[", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "3"}], "}"}], "]"}], "]"}]}], "]"}], ",", 
+             RowBox[{"Join", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"points", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}], "}"}], ",", 
+               RowBox[{"midpoints", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ";;", "3"}], "]"}], "]"}]}], "]"}]}], "}"}]}], 
+          "]"}]}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"sierpinskiTriangle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.5", ",", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}]}], "}"}]}], "}"}], 
+       ",", "depth"}], "]"}], ",", 
+     RowBox[{"Frame", "->", "True"}], ",", 
+     RowBox[{"PlotRange", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}]}], "}"}]}], "}"}]}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"depth", ",", "0", ",", "8", ",", "1"}], "}"}]}], 
+  "]"}], "\n"}], "Input",
+ CellChangeTimes->{{3.914686376778986*^9, 3.91468637677995*^9}, {
+  3.9147896570563955`*^9, 
+  3.91478967934741*^9}},ExpressionUUID->"f4462bae-b590-4863-8cb1-\
+91b0ebcaded1"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`depth$$ = 10, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`depth$$], 0, 13, 1}}, Typeset`size$$ = {
+    57.17968940734863, {1.498046929948032, 9.489746441831812}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`depth$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics[
+        $CellContext`sierpinskiTriangle[{{0, 0}, {1, 0}, {
+          0.5, Sqrt[3]/2}}, $CellContext`depth$$], Frame -> True, 
+        PlotRange -> {{0, 1}, {0, Sqrt[3]/2}}], 
+      "Specifications" :> {{$CellContext`depth$$, 0, 13, 1}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{263., {49.134033098001964`, 54.865966901998036`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.91468637745763*^9, 3.9147896228285236`*^9, 
+  3.9147896604463606`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"55032601-9afa-458d-a3ae-676ad8498211"]
+}, Open  ]]
+},
+WindowSize->{1428, 735.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ccea7345-e652-4bfa-b5d2-f381ea07c7dc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3438, 96, 154, "Input",ExpressionUUID->"f4462bae-b590-4863-8cb1-91b0ebcaded1"],
+Cell[4021, 120, 1845, 36, 123, "Output",ExpressionUUID->"55032601-9afa-458d-a3ae-676ad8498211"]
+}, Open  ]]
+}
+]
+*)
+
